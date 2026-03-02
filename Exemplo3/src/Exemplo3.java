@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.awt.Color;
+import java.text.DecimalFormat;
 /**
  *
  * @author aluno
@@ -101,7 +102,7 @@ public class Exemplo3 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,9 +160,7 @@ public class Exemplo3 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, Short.MAX_VALUE))
+                            .addComponent(jLabel7)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtnota1)
                                 .addGap(23, 23, 23)))
@@ -233,8 +232,8 @@ public class Exemplo3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 40, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 47, Short.MAX_VALUE)
                 .addComponent(btnSair)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -250,11 +249,42 @@ public class Exemplo3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnVerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarActionPerformed
+        int idade;
+        idade = Integer.parseInt(txtIdade.getText());
+        
+        if (idade >=18){
+        labelResposta.setText("atingiu a maioridade");
+        }
+        else{
+        labelResposta.setText("não atingiu a maioridade");
+                }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerificarActionPerformed
 
     private void btnProcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessarActionPerformed
-        // TODO add your handling code here:
+        double numero1, numero2, media;
+        
+        numero1 = Double.parseDouble(txtnota1.getText());
+        numero2 = Double.parseDouble(txtNota2.getText());
+        
+        media = (numero1 + numero2) / 2;
+        labelMedia.setText(String.format("%.2f", media));
+        
+        if (media>=6){
+            labelSituacao.setText("Aprovado");
+            labelSituacao.setForeground(Color.blue);
+        }
+        else
+        if (media >=2){
+        labelSituacao.setText("Exame");
+        labelSituacao.setForeground(Color.green);
+    }
+        else
+        {
+        labelSituacao.setText("Reprovado");
+        labelSituacao.setForeground(Color.red);  
+        }
     }//GEN-LAST:event_btnProcessarActionPerformed
 
     /**
